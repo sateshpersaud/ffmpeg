@@ -13,6 +13,7 @@ jobs:
           tar xf ffmpeg.tar.xz
           cd ffmpeg-git-*-amd64-static
           xz --best -q ffmpeg
+          mv ffmpeg.xz ..
 
       - uses: actions/upload-artifact@v2
         with:
