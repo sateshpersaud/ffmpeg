@@ -7,11 +7,16 @@ jobs:
 
     steps:
       - run: |
+          sudo apt-get update > /dev/null
+          sudo apt-get install curl xz > /dev/null
           curl https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz --output ffmpeg.tar.xz --no-progress-meter
+          tar xf ffmpeg.tar.xz
+          cd ffmpeg-git-*-amd64-static
+          xz --best -q ffmpeg
 
       - uses: actions/upload-artifact@v2
         with:
           name: ffmpeg
-          path: ffmpeg.tar.xz
+          path: ffmpeg.xz
           if-no-files-found: error
           retention-days: 30
