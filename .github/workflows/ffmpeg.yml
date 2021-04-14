@@ -15,9 +15,8 @@ jobs:
           xz --best -q ffmpeg
           mv ffmpeg.xz ..
 
-      - uses: actions/upload-artifact@v2
+      - uses: softprops/action-gh-release@v1
         with:
-          name: ffmpeg
-          path: ffmpeg.xz
-          if-no-files-found: error
-          retention-days: 30
+          files: ffmpeg.xz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
