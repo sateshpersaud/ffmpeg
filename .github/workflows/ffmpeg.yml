@@ -10,8 +10,8 @@ jobs:
           curl https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz --output ffmpeg.tar.xz --no-progress-meter
 
       - uses: actions/upload-artifact@v2
-          with:
-            name: ffmpeg
-            path: ffmpeg.tar.xz
-            if-no-files-found: error
-            retention-days: 30
+        with:
+          name: ffmpeg
+          path: ffmpeg.tar.xz
+          if-no-files-found: error
+          retention-days: 30
